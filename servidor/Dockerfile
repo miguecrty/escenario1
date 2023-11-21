@@ -1,5 +1,5 @@
 FROM python:3.8
 
-COPY cliente.py /app/cliente.py
+COPY servidor.py /escenario1/servidor.py
 
-WORKDIR /app
+WORKDIR /escenario1
