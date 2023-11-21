@@ -21,9 +21,8 @@ while True:
             if not data:
                 break
             print(f"			Recibido: {data.decode()}\n")
-
+            if data.decode() == 'salir':
+                break
             # Ahora el servidor también puede enviar mensajes al cliente
             mensaje_servidor = input(": ")
-            if mensaje_servidor.lower() == 'salir':
-                break
             conn.sendall(mensaje_servidor.encode())
