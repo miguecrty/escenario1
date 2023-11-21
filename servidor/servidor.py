@@ -5,7 +5,8 @@ PORT = 8080
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.bind((HOST, PORT))
 server_socket.listen(1)
-print(f"Servidor escuchando en {HOST}:{PORT}\n\n")
+print(f"Servidor escuchando en {HOST}:{PORT}")
+print("Esperando conexion...\n")
 
 while True:
     conn, addr = server_socket.accept()
@@ -23,4 +24,6 @@ while True:
 
             # Ahora el servidor también puede enviar mensajes al cliente
             mensaje_servidor = input(": ")
+            if mensaje_servidor.lower() == 'salir':
+                break
             conn.sendall(mensaje_servidor.encode())
